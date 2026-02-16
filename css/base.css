@@ -1,0 +1,110 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Segoe UI", "Trebuchet MS", "Helvetica Neue", sans-serif;
+    background: linear-gradient(145deg, var(--bg-a), var(--bg-b));
+    color: var(--text);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3) 18px;
+    background: linear-gradient(135deg, var(--header-a), var(--header-b));
+    box-shadow: var(--shadow-sm);
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+}
+
+h1 {
+    margin: 0;
+    color: var(--header-text);
+    font-size: 19px;
+    line-height: 1.2;
+    text-align: center;
+    letter-spacing: 0.01em;
+}
+
+.container {
+    width: min(92vw, 430px);
+    margin: 24px auto;
+    padding: var(--space-4);
+    border-radius: 14px;
+    background-color: var(--surface);
+    border: 1px solid var(--card-edge);
+    box-shadow: var(--shadow-md);
+    container-type: inline-size;
+}
+
+#form_whats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+@supports (width: 1cqw) {
+    .container {
+        --control-height: clamp(42px, 12cqw, 52px);
+    }
+}
+
+footer {
+    margin-top: auto;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: var(--space-1) var(--space-2);
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: var(--footer-link);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+    body {
+        font-size: 115%;
+    }
+
+    header {
+        padding: var(--space-2);
+    }
+
+    header img {
+        width: 42px;
+        height: 42px;
+    }
+
+    h1 {
+        font-size: calc(16px * 1.15);
+    }
+
+    .container {
+        width: calc(100vw - 20px);
+        margin: var(--space-3) auto;
+        padding: var(--space-3);
+    }
+
+    #form_whats {
+        gap: var(--space-2);
+    }
+}

@@ -1,0 +1,246 @@
+﻿label {
+    display: block;
+    margin: 0;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.box-input {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+}
+
+label + .box-input,
+label + input[type="text"],
+label + textarea,
+label + .resultado {
+    margin-top: var(--space-1);
+}
+
+select,
+input[type="tel"],
+input[type="text"],
+textarea {
+    width: 100%;
+    margin: 0;
+    padding: 0 12px;
+    font-size: 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface-strong);
+    min-height: var(--control-height);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    color: var(--text);
+}
+
+.box-input select {
+    flex: 0 0 40%;
+}
+
+.box-input input[type="tel"] {
+    flex: 1;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: calc(var(--control-height) * 2.2);
+    padding-top: 10px;
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-soft);
+}
+
+select:focus,
+input:focus,
+textarea:focus,
+button:focus {
+    border-color: var(--focus);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(135, 184, 255, 0.28);
+}
+
+.resultado {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+}
+
+.resultado input[type="text"],
+#bt_copiar {
+    height: var(--control-height);
+    margin: 0;
+}
+
+#bt_copiar {
+    background-color: var(--copy-bg);
+    box-shadow: var(--btn-shadow);
+}
+
+#bt_submit {
+    background-color: var(--generate-bg);
+    box-shadow: var(--btn-shadow);
+}
+
+#bt_abrir {
+    background-color: var(--open-bg);
+    box-shadow: var(--btn-shadow);
+}
+
+#bt_refazer {
+    background-color: var(--reset-bg);
+    box-shadow: var(--btn-shadow);
+}
+
+button,
+#bt_submit,
+#bt_refazer,
+#bt_abrir {
+    border: 0;
+    border-radius: 10px;
+    color: #fff;
+    min-height: var(--control-height);
+    padding: 0 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+button:hover,
+#bt_submit:hover,
+#bt_refazer:hover,
+#bt_abrir:hover,
+#bt_copiar:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--btn-shadow-hover);
+}
+
+button:active,
+#bt_submit:active,
+#bt_refazer:active,
+#bt_abrir:active,
+#bt_copiar:active {
+    transform: translateY(0);
+}
+
+#link-gerado {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+#link-gerado > label {
+    margin: 0;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-2);
+    margin-top: 0;
+    align-items: stretch;
+}
+
+#status {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-soft);
+    border-radius: 10px;
+    padding: 0;
+    min-height: 0;
+    display: none;
+}
+
+#status:not(:empty) {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+}
+
+#status.error {
+    color: #9f2f2f;
+    background-color: #fbeaea;
+    border: 1px solid #f1c9c9;
+}
+
+#status.success {
+    color: #23683d;
+    background-color: #eaf8ee;
+    border: 1px solid #c8e9d3;
+}
+
+.btn-icon {
+    line-height: 1;
+    font-size: 0.95em;
+}
+
+@media (max-width: 640px) {
+    label,
+    button,
+    #bt_submit,
+    #bt_refazer,
+    #bt_abrir {
+        font-size: calc(16px * 1.15);
+    }
+
+    select,
+    input[type="tel"],
+    input[type="text"],
+    textarea {
+        font-size: calc(16px * 1.15);
+    }
+
+    #status {
+        font-size: calc(14px * 1.15);
+    }
+
+    label + .box-input,
+    label + input[type="text"],
+    label + textarea,
+    label + .resultado {
+        margin-top: var(--space-2);
+    }
+
+    .box-input {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-2);
+    }
+
+    .box-input select,
+    .box-input input[type="tel"] {
+        flex: initial;
+    }
+
+    .resultado {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .button-container {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+    }
+
+    button,
+    #bt_submit,
+    #bt_refazer,
+    #bt_abrir,
+    #bt_copiar {
+        width: 100%;
+    }
+}

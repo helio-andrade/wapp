@@ -1,0 +1,88 @@
+﻿:root {
+    --bg-a: #edf3f1;
+    --bg-b: #e8eef5;
+    --surface: #f9fbfc;
+    --surface-strong: #ffffff;
+    --text: #233341;
+    --text-soft: #5e6f7e;
+    --primary: #3a9f93;
+    --primary-hover: #2f877d;
+    --header-a: #4aaea2;
+    --header-b: #3a9f93;
+    --header-text: #f4fbfa;
+    --card-edge: rgba(255, 255, 255, 0.8);
+    --footer-bg: rgba(35, 51, 65, 0.88);
+    --footer-text: #e7eef5;
+    --footer-link: #f3f7fa;
+    --border: #d8e1e8;
+    --focus: #87b8ff;
+    --shadow-sm: 0 6px 16px rgba(29, 53, 87, 0.08);
+    --shadow-md: 0 18px 36px rgba(29, 53, 87, 0.12);
+    --btn-shadow: 0 8px 18px rgba(58, 159, 147, 0.28);
+    --btn-shadow-hover: 0 10px 20px rgba(47, 135, 125, 0.3);
+    --copy-bg: #7d9fb3;
+    --generate-bg: #67b39d;
+    --open-bg: #7aa6cb;
+    --reset-bg: #d8a97e;
+    --control-height: 46px;
+    --space-1: 8px;
+    --space-2: 10px;
+    --space-3: 14px;
+    --space-4: 16px;
+}
+
+body.theme-soft {
+    --bg-a: #edf3f1;
+    --bg-b: #e8eef5;
+    --surface: #f9fbfc;
+    --surface-strong: #ffffff;
+    --text: #233341;
+    --text-soft: #5e6f7e;
+    --primary: #3a9f93;
+    --primary-hover: #2f877d;
+    --header-a: #4aaea2;
+    --header-b: #3a9f93;
+    --header-text: #f4fbfa;
+    --card-edge: rgba(255, 255, 255, 0.8);
+    --footer-bg: rgba(35, 51, 65, 0.88);
+    --footer-text: #e7eef5;
+    --footer-link: #f3f7fa;
+    --border: #d8e1e8;
+    --focus: #87b8ff;
+    --shadow-sm: 0 6px 16px rgba(29, 53, 87, 0.08);
+    --shadow-md: 0 18px 36px rgba(29, 53, 87, 0.12);
+    --btn-shadow: 0 8px 18px rgba(58, 159, 147, 0.28);
+    --btn-shadow-hover: 0 10px 20px rgba(47, 135, 125, 0.3);
+    --copy-bg: #7d9fb3;
+    --generate-bg: #67b39d;
+    --open-bg: #7aa6cb;
+    --reset-bg: #d8a97e;
+}
+
+body.theme-clean {
+    --bg-a: #f4f7fa;
+    --bg-b: #ecf1f6;
+    --surface: #ffffff;
+    --surface-strong: #ffffff;
+    --text: #243545;
+    --text-soft: #6b7b89;
+    --primary: #4f8fb4;
+    --primary-hover: #3f7594;
+    --header-a: #77abc9;
+    --header-b: #4f8fb4;
+    --header-text: #f5f9fc;
+    --card-edge: rgba(226, 235, 244, 0.95);
+    --footer-bg: rgba(36, 53, 69, 0.92);
+    --footer-text: #eaf0f6;
+    --footer-link: #f3f7fb;
+    --border: #d9e2eb;
+    --focus: #8cb7e8;
+    --shadow-sm: 0 6px 14px rgba(35, 52, 71, 0.08);
+    --shadow-md: 0 16px 30px rgba(35, 52, 71, 0.12);
+    --btn-shadow: 0 8px 18px rgba(79, 143, 180, 0.26);
+    --btn-shadow-hover: 0 10px 22px rgba(63, 117, 148, 0.3);
+    --copy-bg: #7b9aab;
+    --generate-bg: #6eb29e;
+    --open-bg: #81a9cb;
+    --reset-bg: #d6ad87;
+}
