@@ -15,8 +15,20 @@ const countryRules = {
 };
 
 function showStatus(message, type) {
-    statusEl.textContent = message;
+    if (!message) {
+        statusEl.innerHTML = '';
+        statusEl.className = '';
+        return;
+    }
+
+    const iconMap = {
+        success: 'fa-circle-check',
+        error: 'fa-triangle-exclamation'
+    };
+
+    const iconClass = iconMap[type] || 'fa-circle-info';
     statusEl.className = type ? type : '';
+    statusEl.innerHTML = `<i class="fa-solid ${iconClass}" aria-hidden="true"></i><span>${message}</span>`;
 }
 
 function sanitizeNumber(value) {
@@ -96,12 +108,13 @@ botaoAbrir.addEventListener('click', () => {
         return;
     }
 
+    showStatus('Link aberto com sucesso.', 'success');
     window.open(linkInput.value, '_blank', 'noopener,noreferrer');
 });
 
 botaoRefazer.addEventListener('click', () => {
     formulario.reset();
     linkInput.value = '';
-    showStatus('', '');
+    showStatus('Campos limpos com sucesso.', 'success');
     numeroInput.focus();
 });
