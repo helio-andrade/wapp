@@ -1,0 +1,224 @@
+﻿:root {
+    --bg: #d6d8d5;
+    --surface: #eeeeee;
+    --text: #1c1c1c;
+    --primary: #009688;
+    --primary-hover: #00796b;
+    --border: #ced4da;
+    --focus: #80bdff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    background-color: var(--primary);
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+}
+
+h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.container {
+    width: min(92vw, 430px);
+    margin: 20px auto;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: var(--surface);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.box-input {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+select,
+input[type="tel"],
+input[type="text"],
+textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.box-input select {
+    flex: 0 0 40%;
+}
+
+.box-input input[type="tel"] {
+    flex: 1;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+select:focus,
+input:focus,
+textarea:focus,
+button:focus {
+    border-color: var(--focus);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(128, 189, 255, 0.3);
+}
+
+.resultado {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+
+button,
+#bt_submit,
+#bt_refazer,
+#bt_abrir {
+    border: 0;
+    border-radius: 4px;
+    background-color: var(--primary);
+    color: #fff;
+    padding: 10px 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: background-color 0.2s;
+}
+
+button:hover,
+#bt_submit:hover,
+#bt_refazer:hover,
+#bt_abrir:hover {
+    background-color: var(--primary-hover);
+}
+
+#link-gerado {
+    margin-top: 20px;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#status {
+    min-height: 1.2em;
+    margin: 10px 0 0;
+    font-size: 14px;
+}
+
+#status.error {
+    color: #c62828;
+}
+
+#status.success {
+    color: #1b5e20;
+}
+
+footer {
+    margin-top: auto;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 6px 10px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+    header {
+        padding: 10px;
+    }
+
+    header img {
+        width: 42px;
+        height: 42px;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+
+    .container {
+        width: calc(100vw - 20px);
+        margin: 14px auto;
+        padding: 14px;
+    }
+
+    .box-input {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .box-input select,
+    .box-input input[type="tel"] {
+        flex: initial;
+    }
+
+    .resultado {
+        flex-direction: column;
+    }
+
+    .button-container {
+        grid-template-columns: 1fr;
+    }
+
+    button,
+    #bt_submit,
+    #bt_refazer,
+    #bt_abrir {
+        width: 100%;
+    }
+}
