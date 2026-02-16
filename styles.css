@@ -20,6 +20,22 @@
     --shadow-md: 0 18px 36px rgba(29, 53, 87, 0.12);
     --btn-shadow: 0 8px 18px rgba(58, 159, 147, 0.28);
     --btn-shadow-hover: 0 10px 20px rgba(47, 135, 125, 0.3);
+    --copy-bg: #7d9fb3;
+    --copy-bg-hover: #688a9f;
+    --copy-shadow: 0 8px 18px rgba(125, 159, 179, 0.26);
+    --copy-shadow-hover: 0 10px 20px rgba(104, 138, 159, 0.3);
+    --generate-bg: #67b39d;
+    --generate-bg-hover: #4f9a85;
+    --generate-shadow: 0 8px 18px rgba(103, 179, 157, 0.26);
+    --generate-shadow-hover: 0 10px 20px rgba(79, 154, 133, 0.3);
+    --open-bg: #7aa6cb;
+    --open-bg-hover: #6491b7;
+    --open-shadow: 0 8px 18px rgba(122, 166, 203, 0.26);
+    --open-shadow-hover: 0 10px 20px rgba(100, 145, 183, 0.3);
+    --reset-bg: #d8a97e;
+    --reset-bg-hover: #c69162;
+    --reset-shadow: 0 8px 18px rgba(216, 169, 126, 0.26);
+    --reset-shadow-hover: 0 10px 20px rgba(198, 145, 98, 0.3);
     --control-height: 46px;
     --space-1: 8px;
     --space-2: 10px;
@@ -49,6 +65,22 @@ body.theme-soft {
     --shadow-md: 0 18px 36px rgba(29, 53, 87, 0.12);
     --btn-shadow: 0 8px 18px rgba(58, 159, 147, 0.28);
     --btn-shadow-hover: 0 10px 20px rgba(47, 135, 125, 0.3);
+    --copy-bg: #7d9fb3;
+    --copy-bg-hover: #688a9f;
+    --copy-shadow: 0 8px 18px rgba(125, 159, 179, 0.26);
+    --copy-shadow-hover: 0 10px 20px rgba(104, 138, 159, 0.3);
+    --generate-bg: #67b39d;
+    --generate-bg-hover: #4f9a85;
+    --generate-shadow: 0 8px 18px rgba(103, 179, 157, 0.26);
+    --generate-shadow-hover: 0 10px 20px rgba(79, 154, 133, 0.3);
+    --open-bg: #7aa6cb;
+    --open-bg-hover: #6491b7;
+    --open-shadow: 0 8px 18px rgba(122, 166, 203, 0.26);
+    --open-shadow-hover: 0 10px 20px rgba(100, 145, 183, 0.3);
+    --reset-bg: #d8a97e;
+    --reset-bg-hover: #c69162;
+    --reset-shadow: 0 8px 18px rgba(216, 169, 126, 0.26);
+    --reset-shadow-hover: 0 10px 20px rgba(198, 145, 98, 0.3);
 }
 
 body.theme-clean {
@@ -73,6 +105,22 @@ body.theme-clean {
     --shadow-md: 0 16px 30px rgba(35, 52, 71, 0.12);
     --btn-shadow: 0 8px 18px rgba(79, 143, 180, 0.26);
     --btn-shadow-hover: 0 10px 22px rgba(63, 117, 148, 0.3);
+    --copy-bg: #7b9aab;
+    --copy-bg-hover: #658495;
+    --copy-shadow: 0 8px 18px rgba(123, 154, 171, 0.25);
+    --copy-shadow-hover: 0 10px 20px rgba(101, 132, 149, 0.3);
+    --generate-bg: #6eb29e;
+    --generate-bg-hover: #589b87;
+    --generate-shadow: 0 8px 18px rgba(110, 178, 158, 0.25);
+    --generate-shadow-hover: 0 10px 20px rgba(88, 155, 135, 0.3);
+    --open-bg: #81a9cb;
+    --open-bg-hover: #6b93b5;
+    --open-shadow: 0 8px 18px rgba(129, 169, 203, 0.25);
+    --open-shadow-hover: 0 10px 20px rgba(107, 147, 181, 0.3);
+    --reset-bg: #d6ad87;
+    --reset-bg-hover: #c39870;
+    --reset-shadow: 0 8px 18px rgba(214, 173, 135, 0.25);
+    --reset-shadow-hover: 0 10px 20px rgba(195, 152, 112, 0.3);
 }
 
 * {
@@ -215,13 +263,32 @@ button:focus {
     margin: 0;
 }
 
+#bt_copiar {
+    background-color: var(--copy-bg);
+    box-shadow: var(--copy-shadow);
+}
+
+#bt_submit {
+    background-color: var(--generate-bg);
+    box-shadow: var(--generate-shadow);
+}
+
+#bt_abrir {
+    background-color: var(--open-bg);
+    box-shadow: var(--open-shadow);
+}
+
+#bt_refazer {
+    background-color: var(--reset-bg);
+    box-shadow: var(--reset-shadow);
+}
+
 button,
 #bt_submit,
 #bt_refazer,
 #bt_abrir {
     border: 0;
     border-radius: 10px;
-    background-color: var(--primary);
     color: #fff;
     min-height: var(--control-height);
     padding: 0 14px;
@@ -243,6 +310,16 @@ button:hover,
 #bt_abrir:hover {
     background-color: var(--primary-hover);
     transform: translateY(-1px);
+}
+
+button:hover {
+    box-shadow: var(--btn-shadow-hover);
+}
+
+#bt_copiar:hover,
+#bt_submit:hover,
+#bt_abrir:hover,
+#bt_refazer:hover {
     box-shadow: var(--btn-shadow-hover);
 }
 
@@ -328,6 +405,10 @@ footer a:hover {
 }
 
 @media (max-width: 640px) {
+    body {
+        font-size: 120%;
+    }
+
     header {
         padding: var(--space-2);
     }
@@ -338,7 +419,26 @@ footer a:hover {
     }
 
     h1 {
-        font-size: 16px;
+        font-size: calc(16px * 1.2);
+    }
+
+    label,
+    button,
+    #bt_submit,
+    #bt_refazer,
+    #bt_abrir {
+        font-size: calc(16px * 1.2);
+    }
+
+    select,
+    input[type="tel"],
+    input[type="text"],
+    textarea {
+        font-size: calc(16px * 1.2);
+    }
+
+    #status {
+        font-size: calc(14px * 1.2);
     }
 
     .container {
@@ -386,4 +486,3 @@ footer a:hover {
         width: 100%;
     }
 }
-
