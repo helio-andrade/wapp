@@ -1,40 +1,107 @@
-// Selecionando os elementos do DOM
-const formulario = document.getElementById('form_whats');
+﻿const formulario = document.getElementById('form_whats');
 const botaoCopiar = document.getElementById('bt_copiar');
 const botaoRefazer = document.getElementById('bt_refazer');
+const botaoAbrir = document.getElementById('bt_abrir');
+const paisSelect = document.getElementById('pais');
 const numeroInput = document.getElementById('numero');
 const mensagemInput = document.getElementById('mensagem');
 const linkInput = document.getElementById('link');
+const statusEl = document.getElementById('status');
 
-// Função para gerar link de WhatsApp
-formulario.onsubmit = function(evento) {
-    evento.preventDefault(); // Impede o envio do formulário
-    const pais = document.getElementById('pais').value; // Obtém o valor do país
-    const numero = numeroInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
-    const mensagem = encodeURIComponent(mensagemInput.value.trim()); // Codifica a mensagem
+const countryRules = {
+    '55': { min: 10, max: 11 },
+    '351': { min: 9, max: 9 },
+    '1': { min: 10, max: 10 }
+};
 
-    // Verifica se o número é válido
-    if (numero) {
-        const linkWhatsApp = `https://wa.me/${pais}${numero}?text=${mensagem}`; // Cria o link
-        linkInput.value = linkWhatsApp; // Define o valor do input de link
-    } else {
-        alert('Por favor, insira o número de telefone.'); // Alerta caso o número esteja vazio
+function showStatus(message, type) {
+    statusEl.textContent = message;
+    statusEl.className = type ? type : '';
+}
+
+function sanitizeNumber(value) {
+    return value.replace(/\D/g, '');
+}
+
+function isPhoneValid(countryCode, number) {
+    const rule = countryRules[countryCode];
+    if (!rule) {
+        return number.length >= 8 && number.length <= 15;
     }
-};
+    return number.length >= rule.min && number.length <= rule.max;
+}
 
-// Função para copiar o link
-botaoCopiar.onclick = function() {
-    linkInput.select(); // Seleciona o link
-    document.execCommand('copy'); // Copia o link para a área de transferência
-    alert('Link copiado para a área de transferência!'); // Confirmação
-};
+function buildWhatsappLink(countryCode, number, message) {
+    let link = `https://wa.me/${countryCode}${number}`;
+    const trimmedMessage = message.trim();
+    if (trimmedMessage) {
+        link += `?text=${encodeURIComponent(trimmedMessage)}`;
+    }
+    return link;
+}
 
-// Função para refazer o formulário
-botaoRefazer.onclick = function(evento) {
-    evento.preventDefault(); // Impede o envio do formulário
-    // Limpa os campos do formulário
-    numeroInput.value = '';
-    mensagemInput.value = '';
+async function copyToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return;
+    }
+
+    linkInput.focus();
+    linkInput.select();
+    document.execCommand('copy');
+}
+
+window.addEventListener('load', () => {
+    numeroInput.focus();
+});
+
+formulario.addEventListener('submit', (evento) => {
+    evento.preventDefault();
+
+    const pais = paisSelect.value;
+    const numero = sanitizeNumber(numeroInput.value);
+
+    if (!numero) {
+        showStatus('Informe um numero de telefone.', 'error');
+        return;
+    }
+
+    if (!isPhoneValid(pais, numero)) {
+        showStatus('Numero invalido para o pais selecionado.', 'error');
+        return;
+    }
+
+    const linkWhatsApp = buildWhatsappLink(pais, numero, mensagemInput.value);
+    linkInput.value = linkWhatsApp;
+    showStatus('Link gerado com sucesso.', 'success');
+});
+
+botaoCopiar.addEventListener('click', async () => {
+    if (!linkInput.value) {
+        showStatus('Gere um link antes de copiar.', 'error');
+        return;
+    }
+
+    try {
+        await copyToClipboard(linkInput.value);
+        showStatus('Link copiado para a area de transferencia.', 'success');
+    } catch (error) {
+        showStatus('Nao foi possivel copiar o link.', 'error');
+    }
+});
+
+botaoAbrir.addEventListener('click', () => {
+    if (!linkInput.value) {
+        showStatus('Gere um link antes de abrir.', 'error');
+        return;
+    }
+
+    window.open(linkInput.value, '_blank', 'noopener,noreferrer');
+});
+
+botaoRefazer.addEventListener('click', () => {
+    formulario.reset();
     linkInput.value = '';
-    numeroInput.focus(); // Foca no campo do número
-};
+    showStatus('', '');
+    numeroInput.focus();
+});
